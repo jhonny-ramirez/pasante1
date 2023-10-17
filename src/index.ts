@@ -6,7 +6,9 @@ app.use(express.json());
 
 const PORT = 3005;
 
-app.get('/test', async (_req, res) => {
+const testRouter = express.Router(); 
+
+testRouter.get('/', async (_req, res) => {
   try {
     const apiUrl = 'https://rickandmortyapi.com/api/character/1';
 
@@ -23,6 +25,10 @@ app.get('/test', async (_req, res) => {
     res.status(500).json({ error: 'Ocurrió un error al llamar a la API' });
   }
 });
+
+
+app.use('/test', testRouter);
+
 
 app.listen(PORT, () => {
   console.log("Servidor en funcionamiento en el puerto " + PORT);
