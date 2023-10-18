@@ -1,10 +1,14 @@
 import express from 'express';
+import dotenv from 'dotenv';
 
 const app = express();
 
+dotenv.config();
+
+const port = process.env.PORT || 3000;
+
 app.use(express.json());
 
-const PORT = 3005;
 
 const testRouter = express.Router(); 
 
@@ -30,6 +34,6 @@ testRouter.get('/', async (_req, res) => {
 app.use('/test', testRouter);
 
 
-app.listen(PORT, () => {
-  console.log("Servidor en funcionamiento en el puerto " + PORT);
+app.listen(port, () => {
+  console.log("Servidor en funcionamiento en el puerto " + port);
 });
