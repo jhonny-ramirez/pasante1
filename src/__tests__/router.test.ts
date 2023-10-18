@@ -1,7 +1,7 @@
-// __tests__/route.test.ts
+
 import request from 'supertest';
 import express from 'express';
-import testRouter from '../router'; // Ajusta la ruta según la ubicación real de tu archivo route.ts
+import testRouter from '../router'; 
 
 const app = express();
 app.use('/test', testRouter);
